@@ -3,7 +3,7 @@ Website to detect if user is stressed or not using ML.
 
 **Things Done**:
 - [x] Dataset Trained
-- [x] Testing the code
+- [x] Creating test functions
 
 **Technologies used**:
 1. Tensorflow
