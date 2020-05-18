@@ -1,9 +1,13 @@
 # Stress-Detector
 Website to detect if user is stressed or not using ML.
 
-**Things Done**:
+**ML Model Things Done**:
 - [x] Dataset Trained
 - [x] Creating test functions
+
+**Website**:
+- [] Designing main page
+- [] Frontend Architecture to be discussed
 
 **Technologies used**:
 1. Tensorflow
