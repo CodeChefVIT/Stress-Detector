@@ -6,8 +6,11 @@ Website to detect if user is stressed or not using ML.
 - [x] Creating test functions
 
 **Website**:
-- [] Designing main page
-- [] Frontend Architecture to be discussed
+- [x] Designing one-page website
+- [x] Footer Updated
+- [ ] More content to be added
+- [ ] Home section image to be replaced
+- [ ] Login Screen to be added & linked
 
 **Technologies used**:
 1. Tensorflow
