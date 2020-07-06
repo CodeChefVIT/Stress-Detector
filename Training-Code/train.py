@@ -5,15 +5,15 @@ import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Dense,Dropout,Activation,Flatten,BatchNormalization
-from keras.layers import Conv2D,MaxPooling2D
+from keras.layers import Conv2D,MaxPooling2D, AveragePooling2D
 import os
 
 num_classes = 7
 img_rows,img_cols = 48,48
 batch_size = 64
 
-train_data_dir = 'E:/Harshu/fer2013/train'
-validation_data_dir = 'E:/Harshu/fer2013/validation'
+train_data_dir = 'D:/Dataset/train'
+validation_data_dir = 'D:/Dataset/validation'
 
 train_datagen = ImageDataGenerator(
 					rescale=1./255,
@@ -44,7 +44,7 @@ validation_generator = validation_datagen.flow_from_directory(
 							shuffle=True)
 
 
-model = Sequential()
+
 
 def plot_model_history(model_history):
     """
@@ -70,69 +70,95 @@ def plot_model_history(model_history):
     fig.savefig('plot.png')
     plt.show()
 
-# Block-1
-
-model.add(Conv2D(32,(3,3),padding='same',kernel_initializer='he_normal',input_shape=(img_rows,img_cols,1)))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-# model.add(Conv2D(32,(3,3),padding='same',kernel_initializer='he_normal',input_shape=(img_rows,img_cols,1)))
-# model.add(Activation('elu'))
-# model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2,2)))
-model.add(Dropout(0.5))
-
-# Block-2 
-
-model.add(Conv2D(64,(3,3),padding='same',kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(Conv2D(64,(3,3),padding='same',kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2,2)))
-model.add(Dropout(0.5))
-
-# Block-3
-
-model.add(Conv2D(128,(3,3),padding='same',kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(Conv2D(128,(3,3),padding='same',kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2,2)))
-model.add(Dropout(0.5))
-
-# Block-4 
-
-model.add(Conv2D(256,(3,3),padding='same',kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(Conv2D(256,(3,3),padding='same',kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2,2)))
-model.add(Dropout(0.5))
-
-# Block-5
-
+model = Sequential()
+ 
+#1st convolution layer
+model.add(Conv2D(64, (5, 5), activation='relu', input_shape=(48,48,1)))
+model.add(MaxPooling2D(pool_size=(5,5), strides=(2, 2)))
+ 
+#2nd convolution layer
+model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(Conv2D(64, (3, 3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(3,3), strides=(2, 2)))
+ 
+#3rd convolution layer
+model.add(Conv2D(128, (3, 3), activation='relu'))
+model.add(Conv2D(128, (3, 3), activation='relu'))
+model.add(AveragePooling2D(pool_size=(3,3), strides=(2, 2)))
+ 
 model.add(Flatten())
-# model.add(Dense(64,kernel_initializer='he_normal'))
-# model.add(Activation('elu'))
-# model.add(BatchNormalization())
-model.add(Dropout(0.5))
+ 
+#fully connected neural networks
+model.add(Dense(1024, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(1024, activation='relu'))
+model.add(Dropout(0.2))
+ 
+model.add(Dense(num_classes, activation='softmax'))
 
-# Block-6
-
-model.add(Dense(64,kernel_initializer='he_normal'))
-model.add(Activation('relu'))
-model.add(BatchNormalization())
-model.add(Dropout(0.5))
-
-# Block-7
-
-model.add(Dense(num_classes,kernel_initializer='he_normal'))
-model.add(Activation('softmax'))
+## Block-1
+#
+#model.add(Conv2D(32,(3,3),padding='same',kernel_initializer='he_normal',input_shape=(img_rows,img_cols,1)))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+## model.add(Conv2D(32,(3,3),padding='same',kernel_initializer='he_normal',input_shape=(img_rows,img_cols,1)))
+## model.add(Activation('elu'))
+## model.add(BatchNormalization())
+#model.add(MaxPooling2D(pool_size=(2,2)))
+#model.add(Dropout(0.5))
+#
+## Block-2 
+#
+#model.add(Conv2D(64,(3,3),padding='same',kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(Conv2D(64,(3,3),padding='same',kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(MaxPooling2D(pool_size=(2,2)))
+#model.add(Dropout(0.5))
+#
+## Block-3
+#
+#model.add(Conv2D(128,(3,3),padding='same',kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(Conv2D(128,(3,3),padding='same',kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(MaxPooling2D(pool_size=(2,2)))
+#model.add(Dropout(0.5))
+#
+## Block-4 
+#
+#model.add(Conv2D(256,(3,3),padding='same',kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(Conv2D(256,(3,3),padding='same',kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(MaxPooling2D(pool_size=(2,2)))
+#model.add(Dropout(0.5))
+#
+## Block-5
+#
+#model.add(Flatten())
+## model.add(Dense(64,kernel_initializer='he_normal'))
+## model.add(Activation('elu'))
+## model.add(BatchNormalization())
+#model.add(Dropout(0.5))
+#
+## Block-6
+#
+#model.add(Dense(64,kernel_initializer='he_normal'))
+#model.add(Activation('relu'))
+#model.add(BatchNormalization())
+#model.add(Dropout(0.5))
+#
+## Block-7
+#
+#model.add(Dense(num_classes,kernel_initializer='he_normal'))
+#model.add(Activation('softmax'))
 
 print(model.summary())
 
