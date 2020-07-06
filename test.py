@@ -40,13 +40,13 @@ def emotion_finder(faces,frame):
 def normalize_values(points,disp,points_lip,dis_lip):
     normalize_value_lip = abs(dis_lip - np.min(points_lip))/abs(np.max(points_lip) - np.min(points_lip))
     normalized_value_eye =abs(disp - np.min(points))/abs(np.max(points) - np.min(points))
-    normalized_value =( normalized_value_eye + normalize_value_lip)
-    stress_value = (np.exp(-(normalized_value)))/1.3
-    print(stress_value)
-    if stress_value>=60:
-        return stress_value,"High Stress"
+    normalized_value =( normalized_value_eye + normalize_value_lip)/2
+    stress_value = (np.exp(-(normalized_value)))
+    if stress_value>=0.75:
+        stress_label="High Stress"
     else:
-        return stress_value,"Low Stress"
+        stress_label="Low Stress"
+    return stress_value,stress_label
     
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
@@ -92,9 +92,10 @@ while(True):
         eyedist = ebdist(leyebrow[-1],reyebrow[0])
 
         stress_value,stress_label = normalize_values(points,eyedist, points_lip, lipdist)
+            
         cv2.putText(frame, emotion, (10,10),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-        cv2.putText(frame,"stress level:{}".format(str(int(stress_value*100))),(10,40),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-        cv2.putText(frame,stress_label,(10,60),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        cv2.putText(frame,"stress value:{}".format(str(int(stress_value*100))),(10,40),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        cv2.putText(frame,"Stress level:{}".format((stress_label)),(10,60),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     cv2.imshow("Frame", frame)
 
     key = cv2.waitKey(1) & 0xFF
