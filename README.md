@@ -1,4 +1,4 @@
-# Stress-Detector
+# Stress-Detector-Project
 API to detect real time stress using Deep Learning Convolutional Neural Networks and Flask (to link the API).
 
 **Dataset**
