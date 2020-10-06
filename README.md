@@ -1,4 +1,4 @@
-# Stress-Detector
+# Stress-Detector-An amazing and helpful project
 API to detect real time stress using Deep Learning Convolutional Neural Networks and Flask (to link the API).
 
 **Dataset**
@@ -12,7 +12,7 @@ Kaggle Facial Expression Recognition dataset.
 - [x] Display the stress level and value on frame
 - [x] Link Model to API using Flask
 
-**Technologies required**:
+**Technology Requirements**:
 1. Tensorflow
 2. Keras
 3. OpenCV
