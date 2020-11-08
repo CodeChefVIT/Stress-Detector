@@ -6,6 +6,7 @@ from scipy.spatial import distance as dist
 import imutils
 from imutils import face_utils
 import matplotlib.pyplot as plt
+import numpy as np
 
 class VideoCamera(object):
     def __init__(cap):
