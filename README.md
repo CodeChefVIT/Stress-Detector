@@ -16,13 +16,13 @@
 - Real-time stress calculation
 
 ## Screenshots
-<img src="https://ibb.co/6JQ8TzZ">
-<img src="https://ibb.co/gZ5rR11">
+"<a href="https://imgbb.com/"><img src="https://i.ibb.co/d4df599/Stress-Low.png" alt="Stress-Low" border="0"></a>"
+"<a href="https://imgbb.com/"><img src="https://i.ibb.co/n8pBY90/Stress-High.png" alt="Stress-High" border="0"></a>"
 
 ## Instructions to run
 ```
-$ git clone https://github.com/CodeChefVIT/<Project>
-$ cd <Project>
+$ git clone https://github.com/CodeChefVIT/Stress-Detector
+$ cd Stress-Detector
 $ pip3 install -r requirements.txt
 $ python3 app.py runserver
 ```
