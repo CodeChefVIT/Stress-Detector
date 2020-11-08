@@ -20,4 +20,4 @@ def predict():
     return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    app.run(debug=True,threaded=False)
+    app.run(debug=False,threaded=False)
