@@ -1,24 +1,38 @@
-# Stress-Detector
-API to detect real time stress using Deep Learning Convolutional Neural Networks and Flask (to link the API).
+<p align="center"><a href="https://www.codechefvit.com" target="_blank"><img src="https://s3.amazonaws.com/codechef_shared/sites/all/themes/abessive/logo-3.png" title="CodeChef-VIT" alt="Codechef-VIT"></a>
+</p>
 
-**Dataset**
-Kaggle Facial Expression Recognition dataset.
+# Stress Detector 
 
-**Process**:
-- [x] 7 Layer CNN Model 
-- [x] Dataset Trained on 7 emotions
-- [x] Test functions to identify facial landmarks
-- [x] Calculate the value for stress based on distance in eye and lip
-- [x] Display the stress level and value on frame
-- [x] Link Model to API using Flask
+> <Subtitle>
+> An API to detect stress real-time using facial recognition employed by OpenCV, CNN and Flask.
 
-**Technologies required**:
-1. Tensorflow
-2. Keras
-3. OpenCV
-4. dlib for better facial identification
-5. face utills to identify facial landmarks
-6. Dataset classified into 7 emotions
-7. 68 facial point.dat file 
-8. Flask to link model to API
+---
+[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
+  [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
 
+## Features
+- Facial Recognition
+- Identifying Eyebrows and lip movement 
+- Real-time stress calculation
+
+## Screenshots
+"<a href="https://imgbb.com/"><img src="https://i.ibb.co/d4df599/Stress-Low.png" alt="Stress-Low" border="0"></a>"
+"<a href="https://imgbb.com/"><img src="https://i.ibb.co/n8pBY90/Stress-High.png" alt="Stress-High" border="0"></a>"
+
+## Instructions to run
+```
+$ git clone https://github.com/CodeChefVIT/Stress-Detector
+$ cd Stress-Detector
+$ pip3 install -r requirements.txt
+$ python3 app.py runserver
+```
+
+## Contributors
+- <a href="https://github.com/<Contributor>">Harshini Raju</a>
+
+## License
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+<p align="center">
+	With :heart: by <a href="https://www.codechefvit.com" target="_blank">CodeChef-VIT</a>
+</p>
