@@ -4,11 +4,14 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 Werkzeug==0.15.5
-numpy>=1.9.2
-scipy>=0.15.1
+numpy==1.17.4
+scipy>=0.16
 scikit-learn>=0.18
 pandas>=0.19
-python-Levenshtein==0.12.0
+tensorflow==2.1.2
 pytesseract==0.2.6
 opencv-python==4.4.0.44
 matplotlib>=1.4.3
+dlib==19.21.0
+pillow
+keras>=2.0
