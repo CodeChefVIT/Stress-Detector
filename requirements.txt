@@ -13,5 +13,9 @@ Pillow==5.3.0
 keras==2.2.3
 jupyter==1.0.0
 scikit-learn==0.20.0
-cmake==3.18.2.post1
-dlib==19.21.0
+boost==0.1
+cmake==0.7.1
+boost-py
+face_recognition_models
+face_recognition
+dlib>=19.3.0
