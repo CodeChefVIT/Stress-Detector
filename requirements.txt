@@ -12,3 +12,4 @@ Pillow==5.3.0
 keras==2.2.3
 jupyter==1.0.0
 scikit-learn==0.20.0
+dlib==19.21.0
