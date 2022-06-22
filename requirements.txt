@@ -6,7 +6,7 @@ cmake==0.7.1
 Click>=6.0
 dlib>=19.3.0
 scipy>=0.17.0
-numpy==1.17.2
+numpy==1.22.0
 matplotlib==3.1.1
 imutils==0.5.3
 requests==2.20.0
