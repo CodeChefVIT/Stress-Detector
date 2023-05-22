@@ -9,7 +9,7 @@ scipy>=0.17.0
 numpy==1.17.2
 matplotlib==3.1.1
 imutils==0.5.3
-requests==2.20.0
+requests==2.31.0
 scikit-learn==0.20.0
 tensorflow==2.4.0
 keras==2.2.3
